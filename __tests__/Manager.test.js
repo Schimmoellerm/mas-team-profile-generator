@@ -2,7 +2,7 @@ const Employee = require ("../lib/Employee");
 const Manager = require ("../lib/Manager");
 const expect = require('chai').expect;
 
-describe("Employee Class", () => {
+describe("Manager Class", () => {
     it("Creates an object called employee", () => {
         const name = 'Mitch Schimmoeller';
         const id = 1;
