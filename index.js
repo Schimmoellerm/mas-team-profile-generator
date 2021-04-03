@@ -9,6 +9,7 @@ let teamName;
 let manager;
 let engineersArr = [];
 let internsArr = [];
+let htmlArr = [];
 
 const startTeam = () => {
     inquirer
@@ -78,5 +79,51 @@ const writeHTML = () => {
     console.log(manager);
     console.log(engineersArr);
     console.log(internsArr);
+
+    htmlArr.push(`<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
+              rel="stylesheet" 
+              integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" 
+              crossorigin="anonymous">
+        <title>Team Profile</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body text-center customTitle">
+                    <h1>${teamName}</h1>
+                </div>
+            </div>
+        </div>`);
+
+    htmlArr.push(`<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">${manager.name}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
+      <p class="card-text">Employee ID: ${manager.id}</p>
+      <p class="card-text">Office Number: ${manager.officeNumber}</p>
+      <a href="${manager.email}" class="card-link">${manager.email}</a>
+    </div>
+  </div>`);
+
+  for (let i=0; i<engineersArr.length; i++) {
+    htmlArr.push(`<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">${engineersArr[i].name}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
+      <p class="card-text">Employee ID: ${engineersArr[i].id}</p>
+      <a href="https://github.com/${engineersArr[i].github}" class="card-link">GitHub</a>
+      <a href="
+    </div>
+  </div>`);
+  }
+
+  //console.log(htmlArr)
+    
 }
 startTeam()
