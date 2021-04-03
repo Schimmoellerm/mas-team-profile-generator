@@ -1,6 +1,5 @@
 const Employee = require ("../lib/Employee");
 const Manager = require ("../lib/Manager");
-const expect = require('chai').expect;
 
 describe("Manager Class", () => {
     it("Creates an object called employee", () => {
@@ -10,13 +9,13 @@ describe("Manager Class", () => {
         const officeNumber = 1
         const manager = new Manager(name, id, email, officeNumber);
         
-        expect(manager.name).equal('Mitch Schimmoeller');
-        expect(manager.id).equal(1);
-        expect(manager.email).equal('schimmoellerm@gmail.com');
-        expect(manager.officeNumber).equal(1)
-        expect(manager.getName()).equal('Mitch Schimmoeller');
-        expect(manager.getId()).equal(1);
-        expect(manager.getEmail()).equal('schimmoellerm@gmail.com');
-        expect(manager.getRole()).equal('Manager');
+        expect(manager.name).toEqual('Mitch Schimmoeller');
+        expect(manager.id).toEqual(1);
+        expect(manager.email).toEqual('schimmoellerm@gmail.com');
+        expect(manager.officeNumber).toEqual(1)
+        expect(manager.getName()).toEqual('Mitch Schimmoeller');
+        expect(manager.getId()).toEqual(1);
+        expect(manager.getEmail()).toEqual('schimmoellerm@gmail.com');
+        expect(manager.getRole()).toEqual('Manager');
     });
 });

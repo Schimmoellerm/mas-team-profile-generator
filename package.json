@@ -4,10 +4,11 @@
   "description": "Team Profile Generator",
   "main": "index.js",
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose test/*"
   },
   "repository": {
     "type": "git",
@@ -20,8 +21,6 @@
   },
   "homepage": "https://github.com/Schimmoellerm/mas-team-profile-generator#readme",
   "dependencies": {
-    "chai": "^4.3.4",
-    "expect.js": "^0.3.1",
     "inquirer": "^8.0.0"
   },
   "devDependencies": {
