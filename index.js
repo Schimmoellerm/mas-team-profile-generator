@@ -10,6 +10,7 @@ let manager;
 let engineersArr = [];
 let internsArr = [];
 let htmlArr = [];
+let finalHTML;
 
 const startTeam = () => {
     inquirer
@@ -59,7 +60,7 @@ const getTeam = () => {
 
                     {type: 'input', message: `What is the intern's id?`, name: 'internId'},
 
-                    {type: 'input', message: `What is the engineer's email?`, name: 'internEmail'},
+                    {type: 'input', message: `What is the intern's email?`, name: 'internEmail'},
 
                     {type: 'input', message: `What is the intern's school?`, name: 'internSchool'},
                 ])
@@ -75,10 +76,10 @@ const getTeam = () => {
 }
 
 const writeHTML = () => {
-    console.log(teamName);
-    console.log(manager);
-    console.log(engineersArr);
-    console.log(internsArr);
+    //console.log(teamName);
+    //console.log(manager);
+    //console.log(engineersArr);
+    //console.log(internsArr);
 
     htmlArr.push(`<!DOCTYPE html>
     <html lang="en">
@@ -107,7 +108,7 @@ const writeHTML = () => {
       <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
       <p class="card-text">Employee ID: ${manager.id}</p>
       <p class="card-text">Office Number: ${manager.officeNumber}</p>
-      <a href="${manager.email}" class="card-link">${manager.email}</a>
+      <a href="mailto:${manager.email}" class="card-link">${manager.email}</a>
     </div>
   </div>`);
 
@@ -115,15 +116,39 @@ const writeHTML = () => {
     htmlArr.push(`<div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">${engineersArr[i].name}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
+      <h6 class="card-subtitle mb-2 text-muted">Engineer</h6>
       <p class="card-text">Employee ID: ${engineersArr[i].id}</p>
+      <a href="mailto:${engineersArr[i].email}" class="card-link">${engineersArr[i].email}</a>
       <a href="https://github.com/${engineersArr[i].github}" class="card-link">GitHub</a>
-      <a href="
     </div>
   </div>`);
   }
 
+  for (let i=0; i<internsArr.length; i++) {
+    htmlArr.push(`<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">${internsArr[i].name}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Intern</h6>
+      <p class="card-text">Employee ID: ${internsArr[i].id}</p>
+      <p class="card-text">${internsArr[i].school}</p>
+      <a href="mailto:${internsArr[i].email}" class="card-link">${internsArr[i].email}</a>
+    </div>
+  </div>`);
+  }
+
+  htmlArr.push(`</body>
+  </html>`);
+
+  finalHTML = htmlArr.join(' ')
+  
   //console.log(htmlArr)
-    
+  
+  createHTML()
 }
+
+const createHTML = () => {
+    fs.writeFile('./dist/teamprofile.html', finalHTML, (error) => {if (error) console.log("This didn't work.")});
+    console.log('Team profile created in dist folder.')
+}
+
 startTeam()
