@@ -22,6 +22,9 @@ teamprofile.html will be located in the dist folder.
 * [node.js](https://nodejs.org/en/) - Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 * [inquirer](https://www.npmjs.com/package/inquirer) - Package for node.js that will prompt users with questions.
 
+## Test
+![Test_Passing](./Media/Test_Passing.PNG)
+
 ## Authors
 
 * **Mitch Schimmoeller** - *Programmer* - [Schimmoellerm](https://github.com/Schimmoellerm)
